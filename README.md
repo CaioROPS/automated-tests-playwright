@@ -1,1 +1,1 @@
-# automated-tests-playwright
+🔹 Autenticação: Função de login reutilizável para testes.
