@@ -1,4 +1,5 @@
 Automação de Testes com Playwright
+
 📖 Descrição
 
 Este projeto implementa testes automatizados utilizando Playwright para validar casos de testes na plataforma OrangeHRM. O objetivo é garantir a integridade e funcionalidade das operações de cadastro, edição e remoção de usuários e colaboradores.
