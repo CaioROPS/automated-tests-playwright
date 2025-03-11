@@ -1,5 +1,6 @@
 import { expect, test } from "@playwright/test";
-import { credentials } from "../DadosPessoais/senhas.spec";
+import { credentials, userCredentials } from "../DadosSensiveis/senhas.spec";
+import { employee, user } from "../DadosPessoais/info.spec";
 
 test('Validações de Cadastro/Edição/Remoção', async ({ page }) => {
 
@@ -18,15 +19,15 @@ test('Validações de Cadastro/Edição/Remoção', async ({ page }) => {
 
     
     // Registrando User
-    await page.locator('[placeholder="First Name"]').fill('Trevor');
-    await page.locator('[placeholder="Last Name"]').fill('Santos');
+    await page.locator('[placeholder="First Name"]').fill(employee.firstName);
+    await page.locator('[placeholder="Last Name"]').fill(employee.lastName);
 
     await page.locator("//span[contains(@class, 'oxd-switch-input')]").click();
 
-    await page.locator("(//div//input)[8]").fill('Trevor');
+    await page.locator("(//div//input)[8]").fill(user.userName);
 
-    await page.locator("(//input[@type='password'])[1]").fill('123Teste');
-    await page.locator("(//input[@type='password'])[2]").fill('123Teste');
+    await page.locator("(//input[@type='password'])[1]").fill(userCredentials.senha);
+    await page.locator("(//input[@type='password'])[2]").fill(userCredentials.senha);
 
     await page.locator("//button[contains(@class, 'oxd-button--secondary')]").click();
 
