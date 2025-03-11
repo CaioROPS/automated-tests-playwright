@@ -12,12 +12,27 @@ test('Validações de Cadastro/Edição/Remoção', async ({ page }) => {
 
     await page.locator("//button[contains(.,'Login')]").click();
 
-    //Cadastrar colaborador PIM
+    // Cadastrar colaborador PIM
     await page.locator("//span[contains(.,'PIM')]").click();
     await page.locator("//button[contains(.,'Add')]").click();
 
-    await page.pause();
     
+    // Registrando User
+    await page.locator('[placeholder="First Name"]').fill('Trevor');
+    await page.locator('[placeholder="Last Name"]').fill('Santos');
+
+    await page.locator("//span[contains(@class, 'oxd-switch-input')]").click();
+
+    await page.locator("(//div//input)[8]").fill('Trevor');
+
+    await page.locator("(//input[@type='password'])[1]").fill('123Teste');
+    await page.locator("(//input[@type='password'])[2]").fill('123Teste');
+
+    await page.locator("//button[contains(@class, 'oxd-button--secondary')]").click();
+
+    await expect(page.locator('.oxd-text--toast-title')).toHaveText('Success');
+
+    await page.pause();
 
 
 });
